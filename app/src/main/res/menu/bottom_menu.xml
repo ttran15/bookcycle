@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/item_homepage"
+        android:title="Home"
+        android:icon="@drawable/homepage_menu"
+        android:iconTint="@color/white"
+        app:showAsAction="never" >
+    </item>
+    <item android:id="@+id/item_booklist"
+        android:title="Book List"
+        android:icon="@drawable/booklist_menu"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/item_profile"
+        android:title="Profile"
+        android:icon="@drawable/profile_menu"
+        app:showAsAction="never">
+    </item>
+</menu>
