@@ -79,19 +79,23 @@ class BookActivity : AppCompatActivity() {
         val spinnerCategory: Spinner = findViewById(R.id.spinnerCategory)
         val editTextDescription: EditText = findViewById(R.id.editTextDescription)
         val editTextPrice: EditText = findViewById(R.id.editTextPrice)
+        val contactNumber: EditText = findViewById(R.id.contact)
+
 
         val author = editTextAuthor.text.toString().trim()
         val title = editTextTitle.text.toString().trim()
         val category = spinnerCategory.selectedItem.toString()
         val description = editTextDescription.text.toString().trim()
         val price = editTextPrice.text.toString().trim()
+        val contact = editTextPrice.text.toString().trim()
+
 
         if (selectedImageUri == null) {
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             return
         }
 
-        uploadBookDetailsToFirebase(author, title, category, description, price)
+        uploadBookDetailsToFirebase(author, title, category, description, contact, price)
     }
 
     private fun selectImage() {
@@ -107,13 +111,13 @@ class BookActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadBookDetailsToFirebase(author: String, title: String, category: String, description: String, price: String) {
+    private fun uploadBookDetailsToFirebase(author: String, title: String, category: String, description: String, price: String, contact: String) {
         val storageRef = FirebaseStorage.getInstance().reference.child("images/${title}_${System.currentTimeMillis()}")
         selectedImageUri?.let {
             storageRef.putFile(it)
                 .addOnSuccessListener {
                     storageRef.downloadUrl.addOnSuccessListener { uri ->
-                        saveBookDetailsToFirestore(author, title, category, description, price, uri.toString())
+                        saveBookDetailsToFirestore(author, title, category, description, price, contact, uri.toString())
                     }
                 }
                 .addOnFailureListener {
@@ -122,7 +126,7 @@ class BookActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveBookDetailsToFirestore(author: String, title: String, category: String, description: String, price: String, imageUrl: String) {
+    private fun saveBookDetailsToFirestore(author: String, title: String, category: String, description: String, price: String, contact: String, imageUrl: String) {
         val firestoreDb = FirebaseFirestore.getInstance()
         val bookData = hashMapOf(
             "author" to author,
@@ -130,6 +134,7 @@ class BookActivity : AppCompatActivity() {
             "category" to category,
             "description" to description,
             "price" to price,
+            "Contact" to contact,
             "image" to imageUrl
         )
 
