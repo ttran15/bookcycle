@@ -7,9 +7,9 @@
         android:iconTint="@color/white"
         app:showAsAction="never" >
     </item>
-    <item android:id="@+id/item_booklist"
-        android:title="Book List"
-        android:icon="@drawable/booklist_menu"
+    <item android:id="@+id/item_addbook"
+        android:title="Add Book"
+        android:icon="@drawable/addbook_menu"
         app:showAsAction="never">
     </item>
     <item android:id="@+id/item_profile"

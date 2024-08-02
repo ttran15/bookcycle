@@ -195,8 +195,8 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#023020"
-        app:itemIconTint="#8B8000"
-        app:itemTextColor="#8B8000"
+        app:itemIconTint="#FEDC56"
+        app:itemTextColor="#FEDC56"
         app:layout_constraintBottom_toBottomOf="parent"
         app:itemActiveIndicatorStyle="@color/black"
         app:menu="@menu/bottom_menu"/>

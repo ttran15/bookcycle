@@ -31,7 +31,7 @@ class HomeActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.item_booklist -> {
+                R.id.item_addbook -> {
                     val intent = Intent(this, BookActivity::class.java)
                     startActivity(intent)
                     true

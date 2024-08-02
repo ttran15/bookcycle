@@ -41,6 +41,7 @@
         app:srcCompat="@drawable/white_background" />
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="360dp"
         android:layout_height="400dp"
         android:layout_marginTop="30dp"
@@ -126,17 +127,17 @@
                 android:layout_weight="1"
                 android:text="Email"
                 android:textColor="#964B00"
-                android:textStyle="bold"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/edtEmail"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
                 android:gravity="right"
-                android:textSize="20dp"/>
+                android:text=""
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -153,17 +154,17 @@
                 android:layout_weight="1"
                 android:text="Phone"
                 android:textColor="#964B00"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/edtPhone"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
                 android:gravity="right"
-                android:textSize="20dp"/>
+                android:text=""
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -180,17 +181,17 @@
                 android:layout_weight="1"
                 android:text="Address"
                 android:textColor="#964B00"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/edtAddress"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
                 android:gravity="right"
-                android:textSize="20dp"/>
+                android:text=""
+                android:textSize="20dp" />
         </LinearLayout>
 
         <LinearLayout
@@ -206,17 +207,17 @@
                 android:layout_weight="1"
                 android:text="Postal Code"
                 android:textColor="#964B00"
-                android:textStyle="bold"
-                android:textSize="20dp"/>
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/edtPostalCode"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text=""
                 android:gravity="right"
-                android:textSize="20dp"/>
+                android:text=""
+                android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
 
@@ -225,10 +226,21 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="#023020"
-        app:itemIconTint="#8B8000"
-        app:itemTextColor="#8B8000"
+        app:itemIconTint="#FEDC56"
+        app:itemTextColor="#FEDC56"
         app:itemActiveIndicatorStyle="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_menu"/>
+
+    <Button
+        android:id="@+id/btnBookList"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:text="MY BOOK LIST"
+        android:backgroundTint="#008000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

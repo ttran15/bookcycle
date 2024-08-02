@@ -50,11 +50,16 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         // change intent
+        //// my book list
+        binding.btnBookList.setOnClickListener {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
+        }
 
         //// logout -> sign in
         binding.imgLogout.setOnClickListener {
             firebaseAuth.signOut()
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this,HomeActivity::class.java)
             startActivity(intent)
         }
         //// edit profile -> update profile
@@ -79,7 +84,7 @@ class ProfileActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.item_booklist -> {
+                R.id.item_addbook -> {
                     val intent = Intent(this, HomeActivity::class.java)
                     startActivity(intent)
                     true

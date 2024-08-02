@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.bookcycle.databinding.SignInLayoutBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -74,6 +75,29 @@ class UpdateProfileActivity : AppCompatActivity() {
             val intent = Intent(this,ProfileActivity::class.java)
             startActivity(intent)
         }
+
+        // Bottom Navigation Setup
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item_homepage -> {
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    true
+                }
+
+                R.id.item_addbook -> {
+                    startActivity(Intent(this, BookActivity::class.java))
+                    true
+                }
+
+                R.id.item_profile -> {
+                    startActivity(Intent(this, ProfileActivity::class.java))
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
     private fun fetchUserData(uid: String) {
         val db = FirebaseFirestore.getInstance()
@@ -125,5 +149,7 @@ class UpdateProfileActivity : AppCompatActivity() {
             .addOnFailureListener {
                 Toast.makeText(this, "record Failed to add ", Toast.LENGTH_SHORT).show()
             }
+        }
     }
-}
+
+

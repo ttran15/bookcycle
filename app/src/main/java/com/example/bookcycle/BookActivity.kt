@@ -53,7 +53,7 @@ class BookActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.item_booklist -> {
+                R.id.item_addbook -> {
                     startActivity(Intent(this, BookActivity::class.java))
                     true
                 }
