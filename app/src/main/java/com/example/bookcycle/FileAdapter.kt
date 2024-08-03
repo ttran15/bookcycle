@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 
 class FileAdapter(
     private val context: Context,
-    private val files: List<FileItem>,
+    private var files: List<FileItem>,
     private val itemClickListener: (FileItem) -> Unit
 ) : RecyclerView.Adapter<FileAdapter.FileViewHolder>() {
 
@@ -28,10 +28,11 @@ class FileAdapter(
             priceTextView.text = fileItem.price
 
             // Load image using Glide
-            Glide.with(context).load(fileItem.imageUrl).into(imageView)
-            /* .placeholder(R.drawable.placeholder_image) // Optional: placeholder while loading
-             .error(R.drawable.error_image) // Optional: error image if loading fails*/
-
+            Glide.with(context)
+                .load(fileItem.imageUrl)
+                .placeholder(R.drawable.placeholder_image) // Placeholder image
+                .error(R.drawable.error) // Error image
+                .into(imageView)
 
             itemView.setOnClickListener {
                 // Pass the clicked item to the click listener
@@ -62,5 +63,10 @@ class FileAdapter(
 
     override fun getItemCount(): Int {
         return files.size
+    }
+
+    fun updateList(newList: List<FileItem>) {
+        files = newList
+        notifyDataSetChanged()
     }
 }
