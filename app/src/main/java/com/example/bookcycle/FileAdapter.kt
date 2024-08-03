@@ -23,7 +23,7 @@ class FileAdapter(
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
 
         fun bind(fileItem: FileItem) {
-            nameTextView.text = fileItem.name
+            nameTextView.text = fileItem.author
             descriptionTextView.text = fileItem.description
             priceTextView.text = fileItem.price
 
@@ -40,7 +40,7 @@ class FileAdapter(
 
                 // Intent to navigate to BookDetailsActivity
                 val intent = Intent(context, BookDetailsActivity::class.java).apply {
-                    putExtra("title", fileItem.name)
+                    putExtra("title", fileItem.title)
                     putExtra("description", fileItem.description)
                     putExtra("price", fileItem.price)
                     putExtra("imageUrl", fileItem.imageUrl)

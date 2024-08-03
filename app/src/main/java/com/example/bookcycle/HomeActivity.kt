@@ -8,6 +8,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
@@ -33,7 +34,6 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.home_layout)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
-        val backButton: Button = findViewById(R.id.back1)
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.item_homepage -> {
@@ -61,7 +61,7 @@ class HomeActivity : AppCompatActivity() {
         itemsRecyclerView.layoutManager = GridLayoutManager(this, 2) // 2 columns in the grid
 
         fileAdapter = FileAdapter(this, files) { fileItem ->
-            Toast.makeText(this, "Clicked ${fileItem.name}", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Clicked ${fileItem.title}", Toast.LENGTH_SHORT).show()
         }
         itemsRecyclerView.adapter = fileAdapter
 
@@ -81,21 +81,24 @@ class HomeActivity : AppCompatActivity() {
             }
         })
 
-        // Set up filter functionality
+        val categories = listOf("All","Fiction", "Non-Fiction", "Science", "History", "Biography", "Fantasy", "Mystery", "Romance")
+
+        // Spinner setup
         val filterSpinner: Spinner = findViewById(R.id.filterSpinner)
+        val spinnerAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        filterSpinner.adapter = spinnerAdapter
+
         filterSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>,
-                view: View,
-                position: Int,
-                id: Long
-            ) {
-                val filterOption = parent.getItemAtPosition(position).toString()
-                applyFilter(filterOption)
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                val selectedCategory = categories[position]
+                applyFilter(selectedCategory)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {}
         }
+
+
     }
 
     private fun loadFilesFromFirestore() {
@@ -118,27 +121,22 @@ class HomeActivity : AppCompatActivity() {
 
     private fun filterList(query: String) {
         val filteredList = files.filter {
-            it.name.contains(query, ignoreCase = true) ||
+            it.title.contains(query, ignoreCase = true) ||
                     it.description.contains(query, ignoreCase = true)
         }
         fileAdapter.updateList(filteredList)
     }
 
-    private fun applyFilter(option: String) {
-        val filteredList = when (option) {
-            "Cost" -> files.sortedBy { it.price.toDoubleOrNull() ?: Double.MAX_VALUE }
-            "Genre" -> files // Assuming a genre field exists
-            "Author" -> files // Assuming an author field exists
-            else -> files
+    private fun applyFilter(category: String) {
+        val filteredList = if (category == "All") {
+            files // Show all files if "All" or a non-category is selected
+        } else {
+            files.filter { it.category == category } // Filter based on category
         }
         fileAdapter.updateList(filteredList)
     }
 
-    private fun navigateToHome() {
-        val intent = Intent(this, HomeActivity::class.java)
-        startActivity(intent)
-        finish() // Optional: close the current activity
-    }
+
 }
 
 
