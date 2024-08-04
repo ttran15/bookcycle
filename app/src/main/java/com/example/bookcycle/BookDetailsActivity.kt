@@ -49,8 +49,8 @@ class BookDetailsActivity : AppCompatActivity() {
         titleTextView.text = title
         categoryTextView.text = category
         descriptionTextView.text = description
-        priceTextView.text = price
         contactTextView.text = contact
+        priceTextView.text = "${price} CAD"
         Glide.with(this).load(imageUrl).into(bookImageView)
 
         contactNumber = contact

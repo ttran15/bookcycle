@@ -21,11 +21,13 @@ class FileAdapter(
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
         private val categoryTextView: TextView = itemView.findViewById(R.id.categoryTextView)
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
+//        private val descriptionTextView: TextView = itemView.findViewById(R.id.bookDescriptionTextView)
 
         fun bind(fileItem: FileItem) {
             nameTextView.text = fileItem.title
             categoryTextView.text = fileItem.category
             priceTextView.text = "${fileItem.price} CAD"
+//            descriptionTextView.text = fileItem.description
 
             // Load image using Glide
             Glide.with(context)
@@ -46,6 +48,7 @@ class FileAdapter(
                     putExtra("price", fileItem.price)
                     putExtra("contact", fileItem.contact)
                     putExtra("imageUrl", fileItem.image)
+//                    putExtra("description", fileItem.description)
                 }
                 context.startActivity(intent)
             }
