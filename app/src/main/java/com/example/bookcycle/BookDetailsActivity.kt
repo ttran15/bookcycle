@@ -46,7 +46,7 @@ class BookDetailsActivity : AppCompatActivity() {
 
         titleTextView.text = title
         descriptionTextView.text = description
-        priceTextView.text = price
+        priceTextView.text = "${price} CAD"
         Glide.with(this).load(imageUrl).into(bookImageView)
 
         // Check for SMS permissions
