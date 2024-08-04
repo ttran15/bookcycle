@@ -42,7 +42,9 @@ class FileAdapter(
                 val intent = Intent(context, BookDetailsActivity::class.java).apply {
                     putExtra("title", fileItem.title)
                     putExtra("category", fileItem.category)
+                    putExtra("description", fileItem.description)
                     putExtra("price", fileItem.price)
+                    putExtra("contact", fileItem.contact)
                     putExtra("imageUrl", fileItem.image)
                 }
                 context.startActivity(intent)

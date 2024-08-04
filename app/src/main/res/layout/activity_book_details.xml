@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFE0"
     android:orientation="vertical"
     android:padding="16dp"
@@ -10,9 +11,11 @@
     <!-- Book Details Section -->
     <ImageView
         android:id="@+id/bookImageView"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:scaleType="centerCrop" />
+        android:layout_width="150dp"
+    android:layout_height="150dp"
+    android:scaleType="centerCrop"
+    android:layout_gravity="center"
+    app:layout_constraintHeight_percent="0.67" />
 
     <TextView
         android:id="@+id/bookTitleTextView"
@@ -20,14 +23,21 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:textColor="#964B00"
-        android:textStyle="bold"
-        android:textSize="20dp" />
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bookCategoryTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Category" />
 
     <TextView
         android:id="@+id/bookDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"/>
+        android:layout_marginTop="8dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/bookPriceTextView"
@@ -35,7 +45,13 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="18sp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/bookContactTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Contact" />
 
     <!-- Divider line -->
     <View
@@ -50,21 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:padding="10dp"
-        android:text="SMS Manager App"
+        android:text="Contact Seller"
         android:textAlignment="center"
         android:textColor="#964B00"
         android:textStyle="bold"
         android:textSize="20dp" />
-
-    <EditText
-        android:id="@+id/idEdtphone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textColor="#964B00"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:inputType="phone" />
 
     <EditText
         android:id="@+id/idEdtMessage"
@@ -82,9 +88,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:padding="10dp"
-        android:textColor="@color/black"
+        android:textColor="#000000"
         android:textStyle="bold"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:text="Send Message"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:background="#FF0000" /> <!-- Red background for visibility -->
 </LinearLayout>
