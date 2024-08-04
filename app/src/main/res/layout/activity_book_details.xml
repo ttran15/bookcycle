@@ -23,12 +23,14 @@
         android:layout_marginTop="16dp"
         android:textColor="#964B00"
         android:textSize="30dp"
+        android:text="Book Title"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/bookDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="book description"
         android:layout_marginTop="8dp"/>
 
     <TextView
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textStyle="bold"
+        android:text="text price"
         android:textColor="@android:color/holo_red_dark"
         android:textSize="20sp" />
 

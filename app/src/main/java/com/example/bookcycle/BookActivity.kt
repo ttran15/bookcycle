@@ -79,7 +79,7 @@ class BookActivity : AppCompatActivity() {
         val spinnerCategory: Spinner = findViewById(R.id.spinnerCategory)
         val editTextDescription: EditText = findViewById(R.id.editTextDescription)
         val editTextPrice: EditText = findViewById(R.id.editTextPrice)
-        val contactNumber: EditText = findViewById(R.id.contact)
+        val contactNumber: EditText = findViewById(R.id.contactNumber)
 
 
         val author = editTextAuthor.text.toString().trim()
@@ -87,7 +87,7 @@ class BookActivity : AppCompatActivity() {
         val category = spinnerCategory.selectedItem.toString()
         val description = editTextDescription.text.toString().trim()
         val price = editTextPrice.text.toString().trim()
-        val contact = editTextPrice.text.toString().trim()
+        val contact = contactNumber.text.toString().trim()
 
 
         if (selectedImageUri == null) {
@@ -95,7 +95,7 @@ class BookActivity : AppCompatActivity() {
             return
         }
 
-        uploadBookDetailsToFirebase(author, title, category, description, contact, price)
+        uploadBookDetailsToFirebase(author, title, category, description, price, contact)
     }
 
     private fun selectImage() {
@@ -134,7 +134,7 @@ class BookActivity : AppCompatActivity() {
             "category" to category,
             "description" to description,
             "price" to price,
-            "Contact" to contact,
+            "contact" to contact,
             "image" to imageUrl
         )
 
