@@ -12,26 +12,27 @@ import com.bumptech.glide.Glide
 
 class FileAdapter(
     private val context: Context,
-    private val files: List<FileItem>,
+    private var files: List<FileItem>,
     private val itemClickListener: (FileItem) -> Unit
 ) : RecyclerView.Adapter<FileAdapter.FileViewHolder>() {
 
     inner class FileViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         private val nameTextView: TextView = itemView.findViewById(R.id.nameTextView)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.descriptionTextView)
+        private val categoryTextView: TextView = itemView.findViewById(R.id.categoryTextView)
         private val priceTextView: TextView = itemView.findViewById(R.id.priceTextView)
 
         fun bind(fileItem: FileItem) {
-            nameTextView.text = fileItem.name
-            descriptionTextView.text = fileItem.description
-            priceTextView.text = fileItem.price
+            nameTextView.text = fileItem.title
+            categoryTextView.text = fileItem.category
+            priceTextView.text = "${fileItem.price} CAD"
 
             // Load image using Glide
-            Glide.with(context).load(fileItem.imageUrl).into(imageView)
-            /* .placeholder(R.drawable.placeholder_image) // Optional: placeholder while loading
-             .error(R.drawable.error_image) // Optional: error image if loading fails*/
-
+            Glide.with(context)
+                .load(fileItem.image)
+                .placeholder(R.drawable.placeholder_image) // Placeholder image
+                .error(R.drawable.error) // Error image
+                .into(imageView)
 
             itemView.setOnClickListener {
                 // Pass the clicked item to the click listener
@@ -39,10 +40,10 @@ class FileAdapter(
 
                 // Intent to navigate to BookDetailsActivity
                 val intent = Intent(context, BookDetailsActivity::class.java).apply {
-                    putExtra("title", fileItem.name)
-                    putExtra("description", fileItem.description)
+                    putExtra("title", fileItem.title)
+                    putExtra("category", fileItem.category)
                     putExtra("price", fileItem.price)
-                    putExtra("imageUrl", fileItem.imageUrl)
+                    putExtra("imageUrl", fileItem.image)
                 }
                 context.startActivity(intent)
             }
@@ -62,5 +63,10 @@ class FileAdapter(
 
     override fun getItemCount(): Int {
         return files.size
+    }
+
+    fun updateList(newList: List<FileItem>) {
+        files = newList
+        notifyDataSetChanged()
     }
 }

@@ -1,8 +1,11 @@
 package com.example.bookcycle
 
 data class FileItem(
-    val name: String = "",
+    val author: String = "",
+    val title: String = "",
+    val category: String = "",
     val description: String = "",
     val price: String = "",
-    val imageUrl: String = ""
+    val contact: String = "",
+    val image: String = ""
 )

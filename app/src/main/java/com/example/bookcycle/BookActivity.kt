@@ -138,7 +138,7 @@ class BookActivity : AppCompatActivity() {
             "image" to imageUrl
         )
 
-        firestoreDb.collection("book_db").add(bookData)
+        firestoreDb.collection("files").add(bookData)
             .addOnSuccessListener {
                 Toast.makeText(this, "Book details uploaded", Toast.LENGTH_SHORT).show()
             }

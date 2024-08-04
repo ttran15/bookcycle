@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BookCycle</string>
+    <string-array name="filter_options">
+        <item>All</item>
+        <item>Cost</item>
+        <item>category</item>
+        <item>Author</item>
+    </string-array>
 </resources>
