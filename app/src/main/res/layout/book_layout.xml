@@ -30,22 +30,22 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgViewAddBook"
-        app:layout_constraintVertical_bias="0.4" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:textColor="#8B8000"
-        android:textStyle="bold"
         android:text="Add Books"
+        android:textColor="#8B8000"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.078" />
+        app:layout_constraintVertical_bias="0.04" />
 
     <LinearLayout
         android:layout_width="350dp"
@@ -198,9 +198,9 @@
             android:id="@+id/buttonSelectImage"
             android:layout_width="170dp"
             android:layout_height="59dp"
+            android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:backgroundTint="#008000"
-            android:layout_gravity="center"
             android:text="Select Image" />
 
 

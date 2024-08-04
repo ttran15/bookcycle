@@ -1,5 +1,3 @@
-package com.example.bookcycle
-
 data class FileItem(
     val author: String = "",
     val title: String = "",
@@ -7,5 +5,6 @@ data class FileItem(
     val description: String = "",
     val price: String = "",
     val contact: String = "",
-    val image: String = ""
+    val image: String = "",
+    val userId: String = ""  // Add this field
 )

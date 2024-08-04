@@ -81,14 +81,12 @@ class BookActivity : AppCompatActivity() {
         val editTextPrice: EditText = findViewById(R.id.editTextPrice)
         val contactNumber: EditText = findViewById(R.id.contactNumber)
 
-
         val author = editTextAuthor.text.toString().trim()
         val title = editTextTitle.text.toString().trim()
         val category = spinnerCategory.selectedItem.toString()
         val description = editTextDescription.text.toString().trim()
         val price = editTextPrice.text.toString().trim()
         val contact = contactNumber.text.toString().trim()
-
 
         if (selectedImageUri == null) {
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
@@ -128,6 +126,8 @@ class BookActivity : AppCompatActivity() {
 
     private fun saveBookDetailsToFirestore(author: String, title: String, category: String, description: String, price: String, contact: String, imageUrl: String) {
         val firestoreDb = FirebaseFirestore.getInstance()
+        val currentUser = auth.currentUser
+
         val bookData = hashMapOf(
             "author" to author,
             "title" to title,
@@ -135,7 +135,8 @@ class BookActivity : AppCompatActivity() {
             "description" to description,
             "price" to price,
             "contact" to contact,
-            "image" to imageUrl
+            "image" to imageUrl,
+            "userId" to currentUser?.uid // Include userId
         )
 
         firestoreDb.collection("files").add(bookData)

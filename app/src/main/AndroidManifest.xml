@@ -19,6 +19,7 @@
         android:theme="@style/Theme.BookCycle"
         tools:targetApi="31">
         <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".UserBooksActivity"></activity>
         <activity android:name=".UpdatePasswordActivity"></activity>
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".UpdateProfileActivity"></activity>
