@@ -1,19 +1,14 @@
 package com.example.bookcycle
 
-import android.Manifest
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Bundle
-import android.telephony.SmsManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -25,13 +20,11 @@ class BookDetailsActivity : AppCompatActivity() {
     private lateinit var contactNumber: String
     private lateinit var sellerEmail: String
 
-    private val SMS_PERMISSION_CODE = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_book_details)
 
-        // menu
+        // Menu
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
         navView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -55,7 +48,6 @@ class BookDetailsActivity : AppCompatActivity() {
                 else -> false
             }
         }
-
 
         // Book details views
         val titleTextView: TextView = findViewById(R.id.bookTitleTextView)
@@ -94,9 +86,6 @@ class BookDetailsActivity : AppCompatActivity() {
         contactNumber = contact
         sellerEmail = email
 
-        // Check for SMS permissions
-        checkPermissions()
-
         // Set up the send message button click listener
         sendMsgBtn.setOnClickListener {
             val message = messageEdt.text.toString()
@@ -120,19 +109,15 @@ class BookDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun checkPermissions() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.SEND_SMS), SMS_PERMISSION_CODE)
-        }
-    }
-
     private fun sendSMS(phoneNumber: String, message: String) {
         try {
-            val smsManager = SmsManager.getDefault()
-            smsManager.sendTextMessage(phoneNumber, null, message, null, null)
-            Toast.makeText(this, "Message sent", Toast.LENGTH_SHORT).show()
+            val smsIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("sms:$phoneNumber")
+                putExtra("sms_body", message)
+            }
+            startActivity(smsIntent)
         } catch (e: Exception) {
-            Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Failed to open SMS app", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
         }
     }
@@ -149,17 +134,6 @@ class BookDetailsActivity : AppCompatActivity() {
             startActivity(Intent.createChooser(intent, "Choose an email client"))
         } catch (e: Exception) {
             Toast.makeText(this, "No email client installed", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == SMS_PERMISSION_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "SMS Permission Granted", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "SMS Permission Denied", Toast.LENGTH_SHORT).show()
-            }
         }
     }
 }
