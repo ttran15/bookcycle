@@ -20,11 +20,8 @@ class MainActivity : AppCompatActivity() {
         binding = SignInLayoutBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // init firebase auth
         firebaseAuth = FirebaseAuth.getInstance()
 
-        // change intent
-        //// submit -> home
         binding.btnSubmit.setOnClickListener {
             val email = binding.edtEmail.text.toString()
             val password = binding.edtPassword.text.toString()
