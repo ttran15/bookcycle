@@ -1,11 +1,13 @@
 package com.example.bookcycle
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -15,7 +17,7 @@ data class Book(
     val category: String = "",
     val description: String = "",
     val price: String = "",
-    val imageUrl: String = "",
+    val image: String = "",
     val userId: String = ""
 )
 class UserBooksActivity : AppCompatActivity() {
@@ -28,6 +30,31 @@ class UserBooksActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_books)
+
+        val navView: BottomNavigationView = findViewById(R.id.nav_view)
+        navView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.item_homepage -> {
+                    val intent = Intent(this, HomeActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.item_addbook -> {
+                    val intent = Intent(this, BookActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                R.id.item_profile -> {
+                    val intent = Intent(this, ProfileActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+
+                else -> false
+            }
+        }
 
         booksRecyclerView = findViewById(R.id.booksRecyclerView)
         booksRecyclerView.layoutManager = LinearLayoutManager(this)

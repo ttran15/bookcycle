@@ -40,8 +40,12 @@ class BooksAdapter(
             titleTextView.text = book.title
             authorTextView.text = book.author
             categoryTextView.text = book.category
-            priceTextView.text = book.price
-            Glide.with(context).load(book.imageUrl).into(imageView)
+            priceTextView.text = "${book.price} CAD"
+            Glide.with(context)
+                .load(book.image)
+                .placeholder(R.drawable.placeholder_image) // Placeholder image
+                .error(R.drawable.error) // Error image
+                .into(imageView)
 
             deleteButton.setOnClickListener {
                 onDeleteClick(book)
