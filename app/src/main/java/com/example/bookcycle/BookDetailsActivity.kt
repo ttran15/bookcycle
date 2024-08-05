@@ -33,6 +33,7 @@ class BookDetailsActivity : AppCompatActivity() {
         val priceTextView: TextView = findViewById(R.id.bookPriceTextView)
         val contactTextView: TextView = findViewById(R.id.bookContactTextView)
         val bookImageView: ImageView = findViewById(R.id.bookImageView)
+        val authorTextView: TextView = findViewById(R.id.bookAuthor)
 
         // Message intent views
         messageEdt = findViewById(R.id.idEdtMessage)
@@ -45,12 +46,14 @@ class BookDetailsActivity : AppCompatActivity() {
         val price = intent.getStringExtra("price") ?: "No Price"
         val contact = intent.getStringExtra("contact") ?: "No Contact"
         val imageUrl = intent.getStringExtra("imageUrl") ?: ""
+        val author = intent.getStringExtra("author") ?: "No author"
 
         titleTextView.text = title
         categoryTextView.text = category
         descriptionTextView.text = description
         contactTextView.text = contact
         priceTextView.text = "${price} CAD"
+        authorTextView.text = author
         Glide.with(this).load(imageUrl).into(bookImageView)
 
         contactNumber = contact

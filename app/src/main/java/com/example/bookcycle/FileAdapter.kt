@@ -49,6 +49,7 @@ class FileAdapter(
                     putExtra("price", fileItem.price)
                     putExtra("contact", fileItem.contact)
                     putExtra("imageUrl", fileItem.image)
+                    putExtra("author", fileItem.author)
 //                    putExtra("description", fileItem.description)
                 }
                 context.startActivity(intent)

@@ -11,11 +11,11 @@
     <!-- Book Details Section -->
     <ImageView
         android:id="@+id/bookImageView"
-        android:layout_width="150dp"
-    android:layout_height="150dp"
-    android:scaleType="centerCrop"
-    android:layout_gravity="center"
-    app:layout_constraintHeight_percent="0.67" />
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        app:layout_constraintHeight_percent="0.67" />
 
     <TextView
         android:id="@+id/bookTitleTextView"
@@ -24,7 +24,16 @@
         android:layout_marginTop="16dp"
         android:textColor="#964B00"
         android:textSize="30dp"
+        android:text="Title"
         android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bookAuthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Author"
+        android:textSize="20dp"
+        android:textStyle="italic"/>
 
     <TextView
         android:id="@+id/bookCategoryTextView"
@@ -33,19 +42,22 @@
         android:text="Category" />
 
     <TextView
-        android:id="@+id/bookDescriptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:textSize="20sp" />
-
-    <TextView
         android:id="@+id/bookPriceTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:textColor="@android:color/holo_red_dark"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:text="price"/>
+
+    <TextView
+        android:id="@+id/bookDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textSize="20sp"
+        android:text="description"/>
+
 
     <TextView
         android:id="@+id/bookContactTextView"
