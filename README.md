@@ -1,4 +1,3 @@
-# bookcycle
 # "BookCycle"
 # A seamless , user-friendly platform for viewing, uploading, and purchasing books.
 # KEY FEATURES
