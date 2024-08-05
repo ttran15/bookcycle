@@ -11,7 +11,7 @@
     <ImageView
         android:id="@+id/imgViewAddBook"
         android:layout_width="365dp"
-        android:layout_height="540dp"
+        android:layout_height="600dp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,16 +21,15 @@
 
     <Button
         android:id="@+id/buttonUpload"
-        android:layout_width="142dp"
-        android:layout_height="49dp"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="#008000"
         android:text="Upload Book"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgViewAddBook"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/imgViewAddBook" />
 
     <TextView
         android:id="@+id/textView2"
@@ -167,11 +166,11 @@
         <EditText
             android:id="@+id/editTextDescription"
             android:layout_width="match_parent"
-            android:layout_height="46dp"
+            android:layout_height="wrap_content"
             android:hint="Description"
             android:layout_marginBottom="5dp"
-            android:lines="3"
-            android:scrollbars="vertical"
+            android:lines="1"
+            android:scrollbars="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -179,30 +178,53 @@
             app:layout_constraintTop_toBottomOf="@+id/spinnerCategory"
             app:layout_constraintVertical_bias="0.17" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="#964B00"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:text="Contact Number" />
+            android:layout_marginBottom="5dp"
+            android:text="Contact Phone Number" />
 
         <EditText
             android:id="@+id/contactNumber"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
-            android:hint="Contact" />
+            android:hint="Contact Phone Number" />
 
-        <Button
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#964B00"
+            android:textSize="20dp"
+            android:layout_marginBottom="5dp"
+            android:textStyle="bold"
+            android:text="Contact Email" />
+
+        <EditText
+            android:id="@+id/contactEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="Contact Email" />
+
+        <ImageView
             android:id="@+id/buttonSelectImage"
             android:layout_width="170dp"
             android:layout_height="59dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="#008000"
-            android:text="Select Image" />
-
+            android:layout_marginTop="0dp"
+            app:srcCompat="@drawable/arrow_ic" />
 
     </LinearLayout>
 

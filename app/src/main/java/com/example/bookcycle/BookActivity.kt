@@ -36,7 +36,7 @@ class BookActivity : AppCompatActivity() {
         spinnerCategory.adapter = adapter
 
         // Set up Button Listeners
-        findViewById<Button>(R.id.buttonSelectImage).setOnClickListener {
+        findViewById<ImageView>(R.id.buttonSelectImage).setOnClickListener {
             selectImage()
         }
 
@@ -80,20 +80,22 @@ class BookActivity : AppCompatActivity() {
         val editTextDescription: EditText = findViewById(R.id.editTextDescription)
         val editTextPrice: EditText = findViewById(R.id.editTextPrice)
         val contactNumber: EditText = findViewById(R.id.contactNumber)
+        val contactEmail: EditText = findViewById(R.id.contactEmail)
 
         val author = editTextAuthor.text.toString().trim()
         val title = editTextTitle.text.toString().trim()
         val category = spinnerCategory.selectedItem.toString()
         val description = editTextDescription.text.toString().trim()
         val price = editTextPrice.text.toString().trim()
-        val contact = contactNumber.text.toString().trim()
+        val contact_number = contactNumber.text.toString().trim()
+        val contact_email = contactEmail.text.toString().trim()
 
         if (selectedImageUri == null) {
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             return
         }
 
-        uploadBookDetailsToFirebase(author, title, category, description, price, contact)
+        uploadBookDetailsToFirebase(author, title, category, description, price, contact_number, contact_email)
     }
 
     private fun selectImage() {
@@ -109,13 +111,13 @@ class BookActivity : AppCompatActivity() {
         }
     }
 
-    private fun uploadBookDetailsToFirebase(author: String, title: String, category: String, description: String, price: String, contact: String) {
+    private fun uploadBookDetailsToFirebase(author: String, title: String, category: String, description: String, price: String, contact_number: String, contact_email: String) {
         val storageRef = FirebaseStorage.getInstance().reference.child("images/${title}_${System.currentTimeMillis()}")
         selectedImageUri?.let {
             storageRef.putFile(it)
                 .addOnSuccessListener {
                     storageRef.downloadUrl.addOnSuccessListener { uri ->
-                        saveBookDetailsToFirestore(author, title, category, description, price, contact, uri.toString())
+                        saveBookDetailsToFirestore(author, title, category, description, price, contact_number, contact_email, uri.toString())
                     }
                 }
                 .addOnFailureListener {
@@ -124,7 +126,7 @@ class BookActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveBookDetailsToFirestore(author: String, title: String, category: String, description: String, price: String, contact: String, imageUrl: String) {
+    private fun saveBookDetailsToFirestore(author: String, title: String, category: String, description: String, price: String, contact_number: String, contact_email: String, imageUrl: String) {
         val firestoreDb = FirebaseFirestore.getInstance()
         val currentUser = auth.currentUser
 
@@ -134,7 +136,8 @@ class BookActivity : AppCompatActivity() {
             "category" to category,
             "description" to description,
             "price" to price,
-            "contact" to contact,
+            "contact" to contact_number,
+            "email" to contact_email,
             "image" to imageUrl,
             "userId" to currentUser?.uid // Include userId
         )
