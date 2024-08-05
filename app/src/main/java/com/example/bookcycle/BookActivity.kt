@@ -90,6 +90,11 @@ class BookActivity : AppCompatActivity() {
         val contact_number = contactNumber.text.toString().trim()
         val contact_email = contactEmail.text.toString().trim()
 
+        if ((title == "") || (price == "") || (contact_number == "") || (contact_email == "")) {
+            Toast.makeText(this, "Please enter compulsory fields: title, price, contact phone number, contact email", Toast.LENGTH_SHORT).show()
+            return
+        }
+
         if (selectedImageUri == null) {
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             return
