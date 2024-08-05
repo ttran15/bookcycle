@@ -6,5 +6,6 @@ data class FileItem(
     val price: String = "",
     val contact: String = "",
     val image: String = "",
-    val userId: String = ""  // Add this field
+    val userId: String = "",  // Add this field
+    val email: String = ""  // Add this field
 )

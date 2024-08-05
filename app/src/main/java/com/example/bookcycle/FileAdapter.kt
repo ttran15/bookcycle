@@ -50,6 +50,7 @@ class FileAdapter(
                     putExtra("contact", fileItem.contact)
                     putExtra("imageUrl", fileItem.image)
                     putExtra("author", fileItem.author)
+                    putExtra("email", fileItem.email)
 //                    putExtra("description", fileItem.description)
                 }
                 context.startActivity(intent)

@@ -62,7 +62,7 @@ class HomeActivity : AppCompatActivity() {
         itemsRecyclerView.layoutManager = GridLayoutManager(this, 2) // 2 columns in the grid
 
         fileAdapter = FileAdapter(this, files) { fileItem ->
-            Toast.makeText(this, "Clicked ${fileItem.title}", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this, "Clicked ${fileItem.title}", Toast.LENGTH_SHORT).show()
         }
         itemsRecyclerView.adapter = fileAdapter
 

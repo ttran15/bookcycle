@@ -18,6 +18,7 @@ class BookDetailsActivity : AppCompatActivity() {
 
     private lateinit var messageEdt: EditText
     private lateinit var sendMsgBtn: Button
+    private lateinit var sendEmailBtn: Button
     private lateinit var contactNumber: String
 
     private val SMS_PERMISSION_CODE = 1
@@ -32,12 +33,14 @@ class BookDetailsActivity : AppCompatActivity() {
         val descriptionTextView: TextView = findViewById(R.id.bookDescriptionTextView)
         val priceTextView: TextView = findViewById(R.id.bookPriceTextView)
         val contactTextView: TextView = findViewById(R.id.bookContactTextView)
+        val emailTextView: TextView = findViewById(R.id.bookEmailTextView)
         val bookImageView: ImageView = findViewById(R.id.bookImageView)
         val authorTextView: TextView = findViewById(R.id.bookAuthor)
 
         // Message intent views
         messageEdt = findViewById(R.id.idEdtMessage)
         sendMsgBtn = findViewById(R.id.idBtnSendMessage)
+        sendEmailBtn = findViewById(R.id.idBtnSendEmail)
 
         // Retrieve and set book details from the intent
         val title = intent.getStringExtra("title") ?: "No Title"
@@ -47,11 +50,13 @@ class BookDetailsActivity : AppCompatActivity() {
         val contact = intent.getStringExtra("contact") ?: "No Contact"
         val imageUrl = intent.getStringExtra("imageUrl") ?: ""
         val author = intent.getStringExtra("author") ?: "No author"
+        val email = intent.getStringExtra("email") ?: "No email"
 
         titleTextView.text = title
         categoryTextView.text = category
         descriptionTextView.text = description
         contactTextView.text = contact
+        emailTextView.text = email
         priceTextView.text = "${price} CAD"
         authorTextView.text = author
         Glide.with(this).load(imageUrl).into(bookImageView)
