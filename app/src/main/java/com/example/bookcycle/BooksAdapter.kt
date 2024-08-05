@@ -32,6 +32,7 @@ class BooksAdapter(
         private val titleTextView: TextView = itemView.findViewById(R.id.textTitle)
         private val authorTextView: TextView = itemView.findViewById(R.id.textAuthor)
         private val categoryTextView: TextView = itemView.findViewById(R.id.textCategory)
+        private val descriptionTextView: TextView = itemView.findViewById(R.id.textDescription)
         private val priceTextView: TextView = itemView.findViewById(R.id.textPrice)
         private val imageView: ImageView = itemView.findViewById(R.id.imageView)
         private val deleteButton: ImageView = itemView.findViewById(R.id.deleteButton)
@@ -40,6 +41,7 @@ class BooksAdapter(
             titleTextView.text = book.title
             authorTextView.text = book.author
             categoryTextView.text = book.category
+            descriptionTextView.text = book.description
             priceTextView.text = "${book.price} CAD"
             Glide.with(context)
                 .load(book.image)
