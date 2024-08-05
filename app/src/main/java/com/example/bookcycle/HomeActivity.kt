@@ -105,7 +105,7 @@ class HomeActivity : AppCompatActivity() {
     private fun loadFilesFromFirestore() {
         db.collection("files").addSnapshotListener { snapshots, e ->
             if (e != null) {
-                Toast.makeText(this, "Error loading files.", Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, "Error loading files.", Toast.LENGTH_SHORT).show()
                 return@addSnapshotListener
             }
 
