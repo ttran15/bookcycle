@@ -40,6 +40,12 @@
   ![image](https://github.com/user-attachments/assets/3554c63a-242c-48fb-92ee-ae0f0452ed59)
 
 
- 9) A Buyer Conntacting Seller by dropping message if the Book is still available for sale.
+ 9) A Buyer Conntacting Seller by dropping Mail or SMS if the Book is still available for sale.
 
   ![image](https://github.com/user-attachments/assets/73ee6aa7-c51d-4ede-a0be-2f106da15248)
+  ![image](https://github.com/user-attachments/assets/3c49b567-dab5-483e-847b-4209d7ed9bf9)
+  ![image](https://github.com/user-attachments/assets/3f21f49e-6351-4da2-897a-413bd72fc45c)
+  ![image](https://github.com/user-attachments/assets/c0ca78c5-286f-40ea-981e-6c78d45314cd)
+
+
+
