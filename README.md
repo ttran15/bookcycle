@@ -1,15 +1,17 @@
-# "BookCycle"
-# A seamless , user-friendly platform for viewing, uploading, and purchasing books.
-# KEY FEATURES
-# 1. Sign in, sign up, reset password feature.
-# 2. View and Update user details in Cloud Firestore.
-# 3. Manage user’s book list.
-# 4. Upload, delete book(s) into a content provider/ database.
-# 5. View all current books in database.
-# 6. Search bar to find a specific books, and filter books based on category.
-# 7. Message intent feature to contact the user who uploaded the book.
+# BookCycle
 
-# UI ScreenShots:
+A seamless , user-friendly platform for viewing, uploading, and purchasing books.
+
+### KEY FEATURES
+##### 1. Sign in, sign up, reset password feature.
+##### 2. View and Update user details in Cloud Firestore.
+##### 3. Manage user’s book list.
+##### 4. Upload, delete book(s) into a content provider/ database.
+##### 5. View all current books in database.
+##### 6. Search bar to find a specific books, and filter books based on category.
+##### 7. Message intent feature to contact the user who uploaded the book.
+
+### UI ScreenShots:
 
 1) Sign in & Sign up Page
 
