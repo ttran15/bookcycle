@@ -18,20 +18,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
-                android:id="@+id/imgViewAddBook"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="centerCrop"
-                android:src="@drawable/white_background" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="16dp"
-                android:layout_margin="20dp"
-                android:background="#80FFFFFF"> 
+                android:layout_margin="20dp">
 
                 <TextView
                     android:id="@+id/textView2"
@@ -44,129 +36,137 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="16dp" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#964B00"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="Title" />
-
-                <EditText
-                    android:id="@+id/editTextTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="51dp"
-                    android:hint="Title"
-                    android:layout_marginBottom="5dp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#964B00"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="Author Name" />
-
-                <EditText
-                    android:id="@+id/editTextAuthor"
-                    android:layout_width="match_parent"
-                    android:layout_height="44dp"
-                    android:hint="Author Name"
-                    android:layout_marginBottom="5dp" />
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="vertical"
+                    android:background="@drawable/white_background"
+                    android:padding="16dp">
 
                     <TextView
-                        android:layout_width="130dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#964B00"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:text="Price" />
-
-                    <TextView
-                        android:layout_width="220dp"
-                        android:layout_height="wrap_content"
-                        android:textColor="#964B00"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:text="Category" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                        android:text="Title" />
 
                     <EditText
-                        android:id="@+id/editTextPrice"
-                        android:layout_width="130dp"
-                        android:layout_height="38dp"
-                        android:hint="Price"
-                        android:layout_marginBottom="5dp"
-                        android:inputType="numberDecimal" />
-
-                    <Spinner
-                        android:id="@+id/spinnerCategory"
-                        android:layout_width="220dp"
-                        android:layout_height="50dp"
-                        android:hint="Category"
+                        android:id="@+id/editTextTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="51dp"
+                        android:hint="Title"
                         android:layout_marginBottom="5dp" />
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#964B00"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="Author Name" />
+
+                    <EditText
+                        android:id="@+id/editTextAuthor"
+                        android:layout_width="match_parent"
+                        android:layout_height="44dp"
+                        android:hint="Author Name"
+                        android:layout_marginBottom="5dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="130dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#964B00"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:text="Price" />
+
+                        <TextView
+                            android:layout_width="220dp"
+                            android:layout_height="wrap_content"
+                            android:textColor="#964B00"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:text="Category" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editTextPrice"
+                            android:layout_width="130dp"
+                            android:layout_height="38dp"
+                            android:hint="Price"
+                            android:layout_marginBottom="5dp"
+                            android:inputType="numberDecimal" />
+
+                        <Spinner
+                            android:id="@+id/spinnerCategory"
+                            android:layout_width="220dp"
+                            android:layout_height="50dp"
+                            android:hint="Category"
+                            android:layout_marginBottom="5dp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#964B00"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:text="Book Description" />
+
+                    <EditText
+                        android:id="@+id/editTextDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description"
+                        android:layout_marginBottom="5dp"
+                        android:lines="1"
+                        android:scrollbars="horizontal" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#964B00"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="5dp"
+                        android:text="Contact Phone Number" />
+
+                    <EditText
+                        android:id="@+id/contactNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:hint="Contact Phone Number" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#964B00"
+                        android:textSize="20dp"
+                        android:layout_marginBottom="5dp"
+                        android:textStyle="bold"
+                        android:text="Contact Email" />
+
+                    <EditText
+                        android:id="@+id/contactEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="5dp"
+                        android:hint="Contact Email" />
                 </LinearLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#964B00"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:text="Book Description" />
-
-                <EditText
-                    android:id="@+id/editTextDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Description"
-                    android:layout_marginBottom="5dp"
-                    android:lines="1"
-                    android:scrollbars="horizontal" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#964B00"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:layout_marginBottom="5dp"
-                    android:text="Contact Phone Number" />
-
-                <EditText
-                    android:id="@+id/contactNumber"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:hint="Contact Phone Number" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="#964B00"
-                    android:textSize="20dp"
-                    android:layout_marginBottom="5dp"
-                    android:textStyle="bold"
-                    android:text="Contact Email" />
-
-                <EditText
-                    android:id="@+id/contactEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="5dp"
-                    android:hint="Contact Email" />
 
                 <ImageView
                     android:id="@+id/buttonSelectImage"
