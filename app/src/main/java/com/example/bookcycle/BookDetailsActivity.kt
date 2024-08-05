@@ -1,7 +1,9 @@
 package com.example.bookcycle
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.telephony.SmsManager
 import android.widget.Button
@@ -20,6 +22,7 @@ class BookDetailsActivity : AppCompatActivity() {
     private lateinit var sendMsgBtn: Button
     private lateinit var sendEmailBtn: Button
     private lateinit var contactNumber: String
+    private lateinit var sellerEmail: String
 
     private val SMS_PERMISSION_CODE = 1
 
@@ -62,6 +65,7 @@ class BookDetailsActivity : AppCompatActivity() {
         Glide.with(this).load(imageUrl).into(bookImageView)
 
         contactNumber = contact
+        sellerEmail = email
 
         // Check for SMS permissions
         checkPermissions()
@@ -72,6 +76,17 @@ class BookDetailsActivity : AppCompatActivity() {
 
             if (message.isNotEmpty()) {
                 sendSMS(contactNumber, message)
+            } else {
+                Toast.makeText(applicationContext, "Please enter a message", Toast.LENGTH_LONG).show()
+            }
+        }
+
+        // Set up the send email button click listener
+        sendEmailBtn.setOnClickListener {
+            val message = messageEdt.text.toString()
+
+            if (message.isNotEmpty()) {
+                sendEmail(sellerEmail, title, message)
             } else {
                 Toast.makeText(applicationContext, "Please enter a message", Toast.LENGTH_LONG).show()
             }
@@ -92,6 +107,21 @@ class BookDetailsActivity : AppCompatActivity() {
         } catch (e: Exception) {
             Toast.makeText(this, "Failed to send message", Toast.LENGTH_SHORT).show()
             e.printStackTrace()
+        }
+    }
+
+    private fun sendEmail(email: String, subject: String, message: String) {
+        val intent = Intent(Intent.ACTION_SEND).apply {
+            type = "message/rfc822"
+            putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+            putExtra(Intent.EXTRA_SUBJECT, subject)
+            putExtra(Intent.EXTRA_TEXT, message)
+        }
+
+        try {
+            startActivity(Intent.createChooser(intent, "Choose an email client"))
+        } catch (e: Exception) {
+            Toast.makeText(this, "No email client installed", Toast.LENGTH_SHORT).show()
         }
     }
 
